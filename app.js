@@ -2,7 +2,6 @@ function changeCity(event) {
   event.preventDefault();
   let cityName = document.querySelector("#city-input").value;
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=447e114afd01a723e3d2abd1e6baf566&units=metric`;
-  console.log("Working 1");
   axios.get(`${apiUrl}`).then(showTemperature);
 }
 
@@ -14,7 +13,6 @@ function showTemperature(response) {
   let humid = Math.round(response.data.main.humidity);
   let newCityName = response.data.name;
   let newCountry = response.data.sys.country;
-
   let userCity = document.querySelector("#city");
   userCity.innerHTML = `${newCityName}, ${newCountry}`;
   let userTemp = document.querySelector("#temprature");
@@ -29,33 +27,27 @@ function showTemperature(response) {
   userHumid.innerHTML = `${humid}%`;
   let newIcon = response.data.weather[0].id;
   displayIcon(newIcon);
+  getForcast(response.data.coord);
 }
 function displayIcon(iconId) {
   let newerIcon = document.querySelector("#iconNow");
   if (iconId < 300) {
     newerIcon.setAttribute("src", "Icons/08dn.svg");
-    console.log("200's");
   } else if (iconId < 400) {
     newerIcon.setAttribute("src", "Icons/06d.svg");
   } else if (iconId < 600) {
     newerIcon.setAttribute("src", "Icons/07dn.svg");
-    console.log("500's");
   } else if (iconId < 700) {
     newerIcon.setAttribute("src", "Icons/09dn.svg");
-    console.log("600's");
   } else if (iconId < 801) {
     newerIcon.setAttribute("src", "Icons/01d.svg");
-    console.log("700's + 800 ");
   } else {
     newerIcon.setAttribute("src", "Icons/03dn.svg");
-    console.log("800's");
   }
 }
 function displayForcast() {
   let forecastElement = document.querySelector("#weather-forcast");
-
   let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"];
-
   let forecastHTML = `<div class="row">`;
   days.forEach(function (day) {
     forecastHTML =
@@ -77,6 +69,9 @@ function displayForcast() {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
+}
+function getForcast(coord) {
+  console.log(coord);
 }
 
 displayForcast();
