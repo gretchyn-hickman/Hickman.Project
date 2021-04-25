@@ -54,14 +54,10 @@ function displayIcon(iconId) {
 function changeTempC(event) {
   event.preventDefault();
   let temp = document.querySelector("#celcius");
-  let changeTemp = document.querySelector("#temprature");
-  changeTemp.innerHTML = "16°";
 }
 function changeTempF(event) {
   event.preventDefault();
   let temp = document.querySelector("#ferinheight");
-  let changeTemp = document.querySelector("#temprature");
-  changeTemp.innerHTML = "60°";
 }
 
 let now = new Date();
@@ -107,8 +103,3 @@ timeNow.innerHTML = dateTimeNow;
 let newCity = document.querySelector("form");
 newCity.addEventListener("submit", changeCity);
 
-let tempC = document.querySelector("#celcius");
-tempC.addEventListener("click", changeTempC);
-
-let tempF = document.querySelector("#ferinheight");
-tempF.addEventListener("click", changeTempF);
