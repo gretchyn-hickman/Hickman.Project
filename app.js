@@ -51,6 +51,37 @@ function displayIcon(iconId) {
     console.log("800's");
   }
 }
+function displayForcast() {
+  let forecastElement = document.querySelector("#weather-forcast");
+
+  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"];
+
+  let forecastHTML = `<div class="row">`;
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">
+                ${day} <br /><br />
+                <div><i class="fas fa-sun"></i></div>
+              </h5>
+              <p class="card-text">Sunny</p>
+              <br />
+              <p class="temp">35°/18°</p>
+            </div>
+          </div>
+        </div>`;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+  console.log(forecastHTML);
+}
+
+displayForcast();
+
 let now = new Date();
 let formatHour = now.getHours();
 if (formatHour < 10) {
