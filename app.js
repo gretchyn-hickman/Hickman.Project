@@ -51,9 +51,28 @@ function displayIcon(iconId) {
     console.log("800's");
   }
 }
+function changeTempC(event) {
+  event.preventDefault();
+  let temp = document.querySelector("#celcius");
+  let changeTemp = document.querySelector("#temprature");
+  changeTemp.innerHTML = "16°";
+}
+function changeTempF(event) {
+  event.preventDefault();
+  let temp = document.querySelector("#ferinheight");
+  let changeTemp = document.querySelector("#temprature");
+  changeTemp.innerHTML = "60°";
+}
+
 let now = new Date();
 let formatHour = now.getHours();
+if (formatHour < 10) {
+  formatHour = `0${formatHour}`;
+}
 let formatMinutes = now.getMinutes();
+if (formatMinutes < 10) {
+  formatMinutes = `0${formatMinutes}`;
+}
 let formatDate = now.getDate();
 let formatDays = [
   "Sunday",
@@ -87,3 +106,9 @@ timeNow.innerHTML = dateTimeNow;
 
 let newCity = document.querySelector("form");
 newCity.addEventListener("submit", changeCity);
+
+let tempC = document.querySelector("#celcius");
+tempC.addEventListener("click", changeTempC);
+
+let tempF = document.querySelector("#ferinheight");
+tempF.addEventListener("click", changeTempF);
