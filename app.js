@@ -1,14 +1,3 @@
-//function changeTempC(event) {
-//event.preventDefault();
-//let temp = document.querySelector("#celcius");
-//let changeTemp = document.querySelector("#temprature");
-//changeTemp.innerHTML = "16°";}
-//function changeTempF(event) {
-//event.preventDefault();
-//let temp = document.querySelector("#ferinheight");
-//let changeTemp = document.querySelector("#temprature");
-//changeTemp.innerHTML = "60°";}
-
 let now = new Date();
 let formatHour = now.getHours();
 let formatMinutes = now.getMinutes();
@@ -17,11 +6,13 @@ let formatDays = [
   "Sunday",
   "Monday",
   "Tuesday",
+  "Wednesday",
   "Thursday",
   "Friday",
   "Saturday",
 ];
-let formatDay = formatDays[now.getDay()];
+let formatDay = formatDays[now.getDay];
+console.log(`${formatDay}`);
 let formatMonths = [
   "January",
   "Febuary",
@@ -36,18 +27,11 @@ let formatMonths = [
   "November",
   "December",
 ];
-let formatMonth = formatMonths[now.getMonth()];
+let formatMonth = formatMonths[now.getDay];
 let dateTimeNow = `${formatDay}, ${formatMonth} ${formatDate}, ${formatHour}:${formatMinutes}`;
 
 let timeNow = document.querySelector("#dateTime");
 timeNow.innerHTML = dateTimeNow;
-
-//let tempC = document.querySelector("#celcius");
-//tempC.addEventListener("click", changeTempC);
-
-//let tempF = document.querySelector("#ferinheight");
-//tempF.addEventListener("click", changeTempF);
-//(<a href="#" id="celcius">°C</a>)|(<a href="#" id="ferinheight">°F</a>);
 function changeCity(event) {
   event.preventDefault();
   let cityName = document.querySelector("#city-input").value;
@@ -64,6 +48,7 @@ function showTemperature(response) {
   let humid = Math.round(response.data.main.humidity);
   let newCityName = response.data.name;
   let newCountry = response.data.sys.country;
+
   let userCity = document.querySelector("#city");
   userCity.innerHTML = `${newCityName}, ${newCountry}`;
   let userTemp = document.querySelector("#temprature");
@@ -76,6 +61,28 @@ function showTemperature(response) {
   userWind.innerHTML = `${windSpeed}km/h`;
   let userHumid = document.querySelector("#humid");
   userHumid.innerHTML = `${humid}%`;
+  let newIcon = response.data.weather[0].id;
+  displayIcon(newIcon);
+}
+function displayIcon(iconId) {
+  let newerIcon = document.querySelector("#iconNow");
+  if (iconId < 300) {
+    newerIcon.innerHTML = `Icons/08dn.svg`;
+
+    console.log("200's");
+  } else if (iconId < 400) {
+    console.log("300's");
+  } else if (iconId < 500) {
+    console.log("400's");
+  } else if (iconId < 600) {
+    console.log("500's");
+  } else if (iconId < 700) {
+    console.log("600's");
+  } else if (iconId < 800) {
+    console.log("700's");
+  } else {
+    console.log("800's");
+  }
 }
 
 let newCity = document.querySelector("form");

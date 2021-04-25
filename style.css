@@ -37,8 +37,14 @@ h2 {
   margin: 100px, 0;
   padding: 50px;
 }
+.thisIcon {
+  width: 450px;
+  height: auto;
+  margin-right: -20px;
+  margin-top: -170px;
+}
 h3 {
-  margin-top: 0;
+  margin: 0;
   font-size: 175px;
   text-align: right;
 }
