@@ -1,37 +1,3 @@
-let now = new Date();
-let formatHour = now.getHours();
-let formatMinutes = now.getMinutes();
-let formatDate = now.getDate();
-let formatDays = [
-  "Sunday",
-  "Monday",
-  "Tuesday",
-  "Wednesday",
-  "Thursday",
-  "Friday",
-  "Saturday",
-];
-let formatDay = formatDays[now.getDay];
-console.log(`${formatDay}`);
-let formatMonths = [
-  "January",
-  "Febuary",
-  "March",
-  "April",
-  "May",
-  "June",
-  "July",
-  "August",
-  "September",
-  "October",
-  "November",
-  "December",
-];
-let formatMonth = formatMonths[now.getDay];
-let dateTimeNow = `${formatDay}, ${formatMonth} ${formatDate}, ${formatHour}:${formatMinutes}`;
-
-let timeNow = document.querySelector("#dateTime");
-timeNow.innerHTML = dateTimeNow;
 function changeCity(event) {
   event.preventDefault();
   let cityName = document.querySelector("#city-input").value;
@@ -85,6 +51,39 @@ function displayIcon(iconId) {
     console.log("800's");
   }
 }
+let now = new Date();
+let formatHour = now.getHours();
+let formatMinutes = now.getMinutes();
+let formatDate = now.getDate();
+let formatDays = [
+  "Sunday",
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+];
+let formatDay = formatDays[now.getDay];
+console.log(`${formatDay}`);
+let formatMonths = [
+  "January",
+  "Febuary",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+let formatMonth = formatMonths[now.getMonth];
+let dateTimeNow = `${formatDay}, ${formatMonth} ${formatDate}, ${formatHour}:${formatMinutes}`;
+let timeNow = document.querySelector("#dateTime");
+timeNow.innerHTML = dateTimeNow;
 
 let newCity = document.querySelector("form");
 newCity.addEventListener("submit", changeCity);
