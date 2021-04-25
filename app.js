@@ -67,20 +67,21 @@ function showTemperature(response) {
 function displayIcon(iconId) {
   let newerIcon = document.querySelector("#iconNow");
   if (iconId < 300) {
-    newerIcon.innerHTML = `Icons/08dn.svg`;
-
+    newerIcon.setAttribute("src", "Icons/08dn.svg");
     console.log("200's");
   } else if (iconId < 400) {
-    console.log("300's");
-  } else if (iconId < 500) {
-    console.log("400's");
+    newerIcon.setAttribute("src", "Icons/06d.svg");
   } else if (iconId < 600) {
+    newerIcon.setAttribute("src", "Icons/07dn.svg");
     console.log("500's");
   } else if (iconId < 700) {
+    newerIcon.setAttribute("src", "Icons/09dn.svg");
     console.log("600's");
-  } else if (iconId < 800) {
-    console.log("700's");
+  } else if (iconId < 801) {
+    newerIcon.setAttribute("src", "Icons/01d.svg");
+    console.log("700's + 800 ");
   } else {
+    newerIcon.setAttribute("src", "Icons/03dn.svg");
     console.log("800's");
   }
 }
