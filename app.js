@@ -45,7 +45,8 @@ function displayIcon(iconId) {
     newerIcon.setAttribute("src", "Icons/03dn.svg");
   }
 }
-function displayForcast() {
+function displayForcast(response) {
+  console.log(response.data.daily);
   let forecastElement = document.querySelector("#weather-forcast");
   let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"];
   let forecastHTML = `<div class="row">`;
@@ -72,9 +73,10 @@ function displayForcast() {
 }
 function getForcast(coord) {
   console.log(coord);
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coord.lat}&lon=${coord.lon}&appid=447e114afd01a723e3d2abd1e6baf566&units=metric`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForcast);
 }
-
-displayForcast();
 
 let now = new Date();
 let formatHour = now.getHours();
