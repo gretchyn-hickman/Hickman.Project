@@ -70,7 +70,7 @@ let formatDays = [
   "Friday",
   "Saturday",
 ];
-let formatDay = formatDays[now.getDay];
+let formatDay = formatDays[now.getDay()];
 console.log(`${formatDay}`);
 let formatMonths = [
   "January",
@@ -86,8 +86,8 @@ let formatMonths = [
   "November",
   "December",
 ];
-let formatMonth = formatMonths[now.getMonth];
-let dateTimeNow = `${formatDay}, ${formatMonth} ${formatDate}, ${formatHour}:${formatMinutes}`;
+let formatMonth = formatMonths[now.getMonth()];
+let dateTimeNow = `${formatDay}, ${formatMonth} ${formatDate}, ${formatHour}:${formatMinutes} (°C)`;
 let timeNow = document.querySelector("#dateTime");
 timeNow.innerHTML = dateTimeNow;
 
