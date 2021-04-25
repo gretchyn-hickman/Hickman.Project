@@ -77,7 +77,6 @@ function displayForcast() {
 
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
-  console.log(forecastHTML);
 }
 
 displayForcast();
@@ -102,7 +101,6 @@ let formatDays = [
   "Saturday",
 ];
 let formatDay = formatDays[now.getDay()];
-console.log(`${formatDay}`);
 let formatMonths = [
   "January",
   "Febuary",
