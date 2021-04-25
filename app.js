@@ -51,15 +51,6 @@ function displayIcon(iconId) {
     console.log("800's");
   }
 }
-function changeTempC(event) {
-  event.preventDefault();
-  let temp = document.querySelector("#celcius");
-}
-function changeTempF(event) {
-  event.preventDefault();
-  let temp = document.querySelector("#ferinheight");
-}
-
 let now = new Date();
 let formatHour = now.getHours();
 if (formatHour < 10) {
@@ -102,4 +93,3 @@ timeNow.innerHTML = dateTimeNow;
 
 let newCity = document.querySelector("form");
 newCity.addEventListener("submit", changeCity);
-
