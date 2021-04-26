@@ -54,7 +54,15 @@ function displayIcon(iconId) {
 function formatDayForcast(timestamp) {
   let date = new Date(timestamp * 1000);
   let day = date.getDay();
-  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
 
   return days[day];
 }
@@ -62,7 +70,6 @@ function formatDayForcast(timestamp) {
 function displayForcast(response) {
   let forecast = response.data.daily;
   let forecastElement = document.querySelector("#weather-forcast");
-  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"];
   let forecastHTML = "";
   forecast.forEach(function (forecastDay, index) {
     if (index < 5) {
@@ -72,7 +79,7 @@ function displayForcast(response) {
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">
-                ${formatDayForcast(formatDay.day)} <br /><br />
+                ${formatDayForcast(forecastDay.dt)} <br /><br />
                 <div>
                   <img
                     src=${displayIcon(forecastDay.weather[0].id)}
