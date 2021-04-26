@@ -26,46 +26,61 @@ function showTemperature(response) {
   let userHumid = document.querySelector("#humid");
   userHumid.innerHTML = `${humid}%`;
   let newIcon = response.data.weather[0].id;
-  displayIcon(newIcon);
+  let newerIcon = document.querySelector("#iconNow");
+  newerIcon.setAttribute("src", displayIcon(newIcon));
   getForcast(response.data.coord);
 }
 function displayIcon(iconId) {
   let newerIcon = document.querySelector("#iconNow");
   if (iconId < 300) {
-    newerIcon.setAttribute("src", "Icons/08dn.svg");
+    return "Icons/08dn.svg";
   } else if (iconId < 400) {
-    newerIcon.setAttribute("src", "Icons/06d.svg");
+    return "Icons/06d.svg";
   } else if (iconId < 600) {
-    newerIcon.setAttribute("src", "Icons/07dn.svg");
+    return "Icons/07dn.svg";
   } else if (iconId < 700) {
-    newerIcon.setAttribute("src", "Icons/09dn.svg");
+    return "Icons/09dn.svg";
   } else if (iconId < 801) {
-    newerIcon.setAttribute("src", "Icons/01d.svg");
+    return "Icons/01d.svg";
   } else {
-    newerIcon.setAttribute("src", "Icons/03dn.svg");
+    return "Icons/03dn.svg";
   }
 }
+
+function formatDayForcast(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+
+  return days[day];
+}
+
 function displayForcast(response) {
-  console.log(response.data.daily);
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#weather-forcast");
   let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"];
   let forecastHTML = "";
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col">
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col">
           <div class="card">
             <div class="card-body">
               <h5 class="card-title">
-                ${day} <br /><br />
+                ${formatDayForcast(formatDay.dt)} <br /><br />
                 <div><i class="fas fa-sun"></i></div>
               </h5>
               <p class="card-text">Sunny</p>
               <br />
-              <p class="temp">35°/18°</p>
+              <p class="temp">${Math.round(forecastDay.temp.max)}°/${Math.round(
+          forecastDay.temp.min
+        )}°</p>
             </div>
           </div>
-        </div>`;
+        </div>
+  `;
+    }
   });
   forecastElement.innerHTML = forecastHTML;
 }
