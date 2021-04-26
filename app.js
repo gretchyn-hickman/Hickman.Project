@@ -13,6 +13,7 @@ function showTemperature(response) {
   let humid = Math.round(response.data.main.humidity);
   let newCityName = response.data.name;
   let newCountry = response.data.sys.country;
+  let newDescription = response.data.weather[0].description;
   let userCity = document.querySelector("#city");
   userCity.innerHTML = `${newCityName}, ${newCountry}`;
   let userTemp = document.querySelector("#temprature");
@@ -25,6 +26,8 @@ function showTemperature(response) {
   userWind.innerHTML = `${windSpeed}km/h`;
   let userHumid = document.querySelector("#humid");
   userHumid.innerHTML = `${humid}%`;
+  let userDescription = document.querySelector("#itIsWeather");
+  userDescription.innerHTML = `${newDescription}`;
   let newIcon = response.data.weather[0].id;
   let newerIcon = document.querySelector("#iconNow");
   newerIcon.setAttribute("src", displayIcon(newIcon));
