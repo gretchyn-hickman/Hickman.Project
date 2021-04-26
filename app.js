@@ -31,7 +31,6 @@ function showTemperature(response) {
   getForcast(response.data.coord);
 }
 function displayIcon(iconId) {
-  let newerIcon = document.querySelector("#iconNow");
   if (iconId < 300) {
     return "Icons/08dn.svg";
   } else if (iconId < 400) {
@@ -69,7 +68,13 @@ function displayForcast(response) {
             <div class="card-body">
               <h5 class="card-title">
                 ${formatDayForcast(formatDay.dt)} <br /><br />
-                <div><i class="fas fa-sun"></i></div>
+                <div>
+                  <img
+                    src=${displayIcon(forecastDay.weather[0].id)}
+                    class="thisIconForcast"
+                    alt="Weather Icon"
+                  />
+                </div>
               </h5>
               <p class="card-text">Sunny</p>
               <br />

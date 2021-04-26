@@ -43,6 +43,13 @@ h2 {
   margin-right: -20px;
   margin-top: -100px;
 }
+.thisIconForcast {
+  display: inline;
+  height: 130px;
+  margin-top: -40px;
+  margin-left: -5px;
+  margin-bottom: -20px;
+}
 h3 {
   margin: 0;
   font-size: 175px;
