@@ -41,6 +41,8 @@ function displayIcon(iconId) {
     return "Icons/09dn.svg";
   } else if (iconId < 801) {
     return "Icons/01d.svg";
+  } else if (iconId < 803) {
+    return "Icons/02d.svg";
   } else {
     return "Icons/03dn.svg";
   }
@@ -76,7 +78,7 @@ function displayForcast(response) {
                   />
                 </div>
               </h5>
-              <p class="card-text">Sunny</p>
+              <p class="card-text">${forecastDay.weather[0].description}</p>
               <br />
               <p class="temp">${Math.round(forecastDay.temp.max)}°/${Math.round(
           forecastDay.temp.min
