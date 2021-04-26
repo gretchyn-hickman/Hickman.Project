@@ -41,7 +41,7 @@ h2 {
   width: 300px;
   height: auto;
   margin-right: -20px;
-  margin-top: -100px;
+  margin-top: -70px;
 }
 .thisIconForcast {
   display: inline;
@@ -54,7 +54,7 @@ h3 {
   margin: 0;
   font-size: 175px;
   text-align: right;
-  margin-top: -40px;
+  margin-top: -45px;
 }
 .search {
   height: 15px;
