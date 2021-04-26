@@ -11,6 +11,7 @@
   );
   border-radius: 20px;
   padding: 20px;
+  height: 650px;
 }
 .temp {
   text-decoration: thin;
@@ -54,7 +55,9 @@ h3 {
   border-radius: 10px;
   border: none;
 }
-
+.weather-forcast {
+  display: inline;
+}
 .card {
   border: none;
   border-radius: 20px;
